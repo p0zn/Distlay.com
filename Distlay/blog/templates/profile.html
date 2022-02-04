@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+{% load static %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container emp-profile">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">
+                        {% if user.profile.avatar %}
+                        <div class="profile-img">
+                            <img src="{{ user.profile.avatar.url }}" width="275" height="300" alt=""/>
+                        </div>
+                        {% else %}
+                        <div class="profile-img">
+                            <img src="{% static 'images/default.jpg' %}" width="275" height="300"  alt=""/>
+                        </div>
+                          
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{request.user.first_name}} {{request.user.last_name}}
+                                    </h5>
+                                    <h6>
+                                        {{user.profile.profession}}
+                                    </h6>
+                                <hr>
+                                <h5>About Me:</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Username:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.username}}</p>
+                                    </div>
+                                </div> 
+                               
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Full Name:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.first_name}} {{user.last_name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Profession:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user.profile.profession}}</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+            </form>       
+            <br>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update Profile</legend>
+                {{p_form|crispy}}
+                {{u_form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </form>
+     </div>
+
+  
+{% endblock body %}

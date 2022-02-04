@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3 align="center">Update Question</h3>
+        <hr>
+        <form method="POST" enctype="multipart/form-data">
+            <p>Common Tags:
+                {% for ct in common_tags %}
+                <a href="" class="badge badge-success">{{ct}}</a>   
+                {% endfor %}
+            </p>
+            {% csrf_token %}
+            {{form.media}}
+            {{form | crispy }}
+            <br>
+            <button type="submit" class="btn btn-outline-info">Update Your Question</button>
+           
+        
+        </form>
+    </div>
+  </div>
+
+
+
+{% endblock body %}
+

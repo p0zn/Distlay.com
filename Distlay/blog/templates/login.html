@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+
+<div style="text-align: center;">
+<img src="{% static 'images/content-logo.png' %}" widht="75px" height="75px"  alt="fosoftwareblog">
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3>Login</h3>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy }}
+            <button type="submit" class="btn btn-outline-info">Login</button>
+        </form>
+        <br>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'user:register' %}">Sign Up Now</a>
+            </small>
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <small class="text-muted">
+                Forgot Password? <a class="ml-2" href="{% url 'password_reset' %}">Reset Now</a>
+            </small>
+        </div>
+    </div>
+  </div>
+
+
+
+{% endblock body %}

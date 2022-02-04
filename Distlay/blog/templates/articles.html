@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/articles-page.css' %}">
+
+
+{% if articles %}
+<div id="main-content" class="blog-page">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 left-box">
+              {% for article in articles %}
+                <div class="card single_post">
+                    <div class="body">
+                        <div class="img-post">
+                          <a href="{% url 'article:detail' article.id %}">
+                          {% if article.article_image %}
+                            <img class="d-block img-fluid" src="{{article.article_image.url}}" alt="First slide">
+                          {% else %}
+                          <img class="d-block img-fluid" src="{% static 'images/default-article.jpg' %}" alt="First slide">
+                          {% endif %}
+                        </a>
+                        </div>
+                        <h3><a href="{% url 'article:detail' article.id %}">{{article.title}}</a></h3>
+                        <div style="display:flex">
+                          {% for tag in article.tags.all %}
+                          <a href="{% url 'article:tagged' tag.slug %}" class="mr-1 badge badge-info"#>{{tag}}</a>
+                          {% endfor %}
+                      </div>
+                      <br>
+                        <p> {{article.content | truncatewords:40 |safe}}</p>
+                    </div>
+                    <div class="footer">
+                        <div class="actions">
+                            <a href="{% url 'article:detail' article.id %}" class="btn btn-outline-info">Read More</a>
+                        </div>
+                        <ul class="stats">
+                            <li><a href="{% url 'article:detail' article.id %}" class="fa fa-comment"> {{article.comments.count}}</a></li>
+                            <li><a href="javascript:void(0);" class="fa fa-flag">&ensp;Report</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="alert alert-danger">Article not found!</div>
+                {% endif %}
+
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+                    {% endif %}
+
+                    {% for page in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page == page_number %} active {% endif %} "><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+                    {% endfor %}
+                   
+                    {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+                    {% endif %}
+                </ul>     
+            </div>
+            <div class="col-lg-4 col-md-12 right-box">
+                <div class="card">
+                    <div class="body search">
+                        <div class="input-group m-b-0">
+                          <form>
+                            {% csrf_token %}
+                            <input type="text" maxlength="64" name="keyword" placeholder="Search Articles..">
+                            <button type="submit" class="btn btn-outline-info">Search</button>
+
+                        </form>                             
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="body widget">
+                      <h5>Write Your Knowledge</h5>
+                      <hr>
+                        <ul class="list-unstyled categories-clouds m-b-0">
+                          <p>Write your own article. Improve the Distlay Community! </p>
+                          <a class = "btn btn-outline-info" href = "{% url 'article:addarticle' %}">Write Article</a>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="body widget">
+                      <h5>Do you have a question?</h5>
+                      <hr>
+                        <ul class="list-unstyled categories-clouds m-b-0">
+                          <h6 class="card-subtitle mb-2 text-muted">Isn't the answer to your question in the articles?</h6>
+                          <p>Ask your question and wait for the community to answer you.</p>
+                          <a href="{% url 'ask:questions' %}"><i class="fas fa-question"></i>&ensp;Questions</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+  
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="/"><img class="logo" src="{% static 'images/test.png' %}" alt="Distlay"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i>&ensp;Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'article:articles' %}"><i class="fas fa-file-code"></i>&ensp;Software Articles</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'ask:questions' %}"><i class="fas fa-question-circle"></i>&ensp;Questions</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-book-reader"></i>&ensp;About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if request.user.is_authenticated %}
+
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:profile' %}"><img width="20" height="20" src="{% static 'images/default-profile.png' %}" alt="User">&nbsp;&nbsp;{{request.user.username}}</a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="{% url 'article:dashboard' %}"><i class="fas fa-columns"></i>&ensp;Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:logout' %}"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</a>
+      </li>
+      <li class="nav-item active">
+          
+        {% else %}
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user:login' %}"><i class="fas fa-user"></i>&ensp;Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user:register' %}"><i class="fas fa-sign-in-alt"></i>&ensp;Register</a>
+        </li>
+          
+        {% endif %}
+      
+      </ul>
+    </div>
+  </nav>
+
+  <script src="https://kit.fontawesome.com/e427689c7c.js" crossorigin="anonymous"></script>

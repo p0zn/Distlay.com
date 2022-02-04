@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<section id="about">
+  <div class="container">
+
+    <header class="section-header">
+      <h3 align="center">About Community</h3>
+      <hr>
+      <p>You can get information about the current software sector in this software blog. </p>
+    </header>
+
+    <div class="row about-container">
+
+      <div class="col-lg-6 content order-lg-1 order-2">
+        <p>
+          You can access articles related to coding languages and interact with developers.
+          fosoftwareblog, which aims to be a large community, is developer-oriented and aims at community work.
+        </p>
+        <br>
+        <div class="icon-box wow fadeInUp">
+          <div class="icon"><i class="fa  fa-address-card"></i></div>
+          <h4 class="title"><a href="">Meet competent people in the software industry</a></h4>
+          <p class="description">Shape your business career by meeting competent people in the software industry and taking advantage of their experience and knowledge.</p>
+        </div>
+
+        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+          <div class="icon"><i class="fa fa-code"></i></div>
+          <h4 class="title"><a href="">Expand your boundaries with open source code</a></h4>
+          <p class="description">With open source codes, you can improve your project and benefit other developers.</p>
+        </div>
+
+        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+          <div class="icon"><i class="fa fa-comments"></i></div>
+          <h4 class="title"><a href="">Contribute to the development of our community</a></h4>
+          <p class="description">Contribute to the development of our software community by sharing your knowledge.</p>
+        </div>
+
+      </div>
+     
+      <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+        <img src=" {% static 'images/about-img.svg' %}" class="img-fluid" alt="">
+      </div>
+    </div>
+    <div class="row about-extra">
+      <div class="col-lg-6 wow fadeInUp">
+        <img src=" {% static 'images/about-extra-1.svg' %}" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+        <h4>Are you an experienced developer?</h4>
+        <br>
+        <p>
+          Experienced developers transfer their knowledge to other users, ensuring the growth of our community. This way, information is exchanged between experienced developers and startup developers.
+        </p>
+        <p>
+          if you are not yet a part of our community, you can register immediately and start improving yourself.
+        </p>
+      </div>
+    </div>
+  
+    <div class="row about-extra">
+      <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+        <img src="{% static 'images/about-extra-2.svg' %}" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+        <h4>Are you looking for teammates for your project in development?</h4>
+        <br>
+        <p>
+          If you have a project and you have difficulty developing it, you can contact experienced developers in our community and find new teammates. 
+        </p>
+        <p>
+          You can find and contact experienced people in the field related to all software languages in our community.
+        </p>
+        <p>
+          You can find the necessary information for your project in the software articles, ask questions where you are missing, ask for support from other developers. In this way, you can contribute to the development of our community.
+        </p>
+      </div>
+      
+    </div>
+
+  </div>
+</section>
+<br><br><br><br>
+<hr>
+<footer id="footer" class="top-space">
+
+  <div class="footer1">
+      <div class="container">
+          <div class="row">
+              
+              <div class="col-md-3 widget">
+                  <h4 class="widget-title">Contact</h4>
+                  <div class="widget-body">
+                      <p>Email:<br>
+                          <a href="mailto:fosoftwareblog@gmail.com">info@distlay.com</a><br>
+                          <br>
+                          Istanbul City, Turkey ZC 34513
+                      </p>	
+                  </div>
+              </div>
+              <div class="col-md-3 widget">
+                  <h4 class="widget-title">Follow Us</h4>
+                  <div class="widget-body">
+                      <p class="follow-me-icons">
+                          <a href="#" class="fa fa-twitter"></a>
+                          <a href="#" class="fa fa-linkedin"></a>
+                          <a href="#" class="fa fa-github"></a>
+                          <a href="#" class="fa fa-instagram"></a>
+                      </p>	
+                  </div>
+              </div>
+
+              <div class="col-md-6 widget">
+                  <h4 class="widget-title">Distlay</h4>
+                  <div class="widget-body">
+                      <p>Distlay is where you can access open source codes, articles about software and provide information about your area of ​​expertise.</p>
+                  </div>
+              </div>
+
+          </div> <!-- /row of widgets -->
+      </div>
+  </div>
+
+  <div class="footer2">
+      <div class="container">
+          <div class="row">
+              
+              <div class="col-md-6 widget">
+                  <div class="widget-body">
+                  </div>
+              </div>
+
+              <div class="col-md-6 widget">
+                  <div class="widget-body">
+                      <p class="text-right">
+                          Copyright &copy; 2021, Distlay. Developed by <a href="https://www.linkedin.com/in/p0zn/" rel="designer">Furkan OZKAN</a> 
+                      </p>
+                  </div>
+              </div>
+
+          </div> <!-- /row of widgets -->
+      </div>
+  </div>
+
+</footer>	
+
+{% endblock  %}
+

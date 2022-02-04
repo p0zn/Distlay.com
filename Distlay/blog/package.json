@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^31.1.0"
+  }
+}

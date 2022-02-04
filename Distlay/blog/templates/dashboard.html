@@ -1,0 +1,134 @@
+{% extends "dashboard-layout.html" %}
+{% load static %}
+
+{% block body %}
+  
+      <!-- Page Wrapper -->
+      <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                  
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Articles <a class = "btn btn-outline-info" href = "/articles/addarticle">Add Article</a> </h6>
+                        </div>
+                        <div class="card-body">
+                          {% if articles %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Author</th>
+                                            <th>Date</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    {% for article in articles %}
+                                    <tbody>
+                                        <tr>
+                                            <td>{{article.id}}</td>
+                                            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+                                            <td>{{article.author.username}}</td>
+                                            <td>{{article.created_date}}</td>
+                                            <td><a href="/articles/update/{{article.id}}" class = "btn btn-success">Update</a></td>
+                                            <td><a href="/articles/delete/{{article.id}}" class = "btn btn-danger">Delete</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                        
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="alert alert-info">You do not have any published articles yet.</div>
+                    <!-- /.container-fluid -->
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <!-- End of Main Content -->
+        </div>
+
+            <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+              <!-- Begin Page Content -->
+              <div class="container-fluid">
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Questions <a class = "btn btn-outline-info" href = "/questions/addquestion">Ask Question</a></h6>
+                    </div>
+                    <div class="card-body">
+                      {% if questions %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Date</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                  {% for question in questions %}
+                                <tbody>
+                                    <tr>
+                                        <td>{{question.id}}</td>
+                                        <td><a href="{% url 'ask:detail' question.id %}">{{question.title}}</a></td>
+                                        <td>{{question.author.username}}</td>
+                                        <td>{{question.asked_date}}</td>
+                                        <td><a href="/questions/update-question/{{question.id}}" class = "btn btn-success">Update</a></td>
+                                        <td><a href="/questions/delete-question/{{question.id}}" class = "btn btn-danger">Delete</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="alert alert-info">You have no questions asked yet.</div>
+            <!-- /.container-fluid -->
+            </div>
+            {% endif %}
+        </div>
+      </div>
+        <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; FOSoftwareBlog 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <script src="https://kit.fontawesome.com/e427689c7c.js" crossorigin="anonymous"></script>
+
+    {% endblock body %}
+ 
+  
+

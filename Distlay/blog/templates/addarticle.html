@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3 align="center">Create Article</h3>
+        <hr>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Common Tags:
+                {% for ct in common_tags %}
+                <a href="" class="badge badge-success">{{ct}}</a>   
+                {% endfor %}
+            </p>
+            {{form.media}}
+            {{form | crispy }}
+
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                   <i>Recommended picture size (1920x1080)</i>
+                </small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-info">Create</button>
+           
+        
+        </form>
+    </div>
+  </div>
+
+
+
+{% endblock body %}
+
