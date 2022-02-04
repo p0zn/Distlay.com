@@ -1,9 +1,9 @@
 # Distlay.com - The software's Distortion Layer ( Being Process : %45 )
 ![](https://www.linkpicture.com/q/content-logo.png)
 ### -Software platform for programmers, where they can read and share articles, ask questions about their projects and get answers.
-## -------------------------------------------------------------------------------------------------------
+
 ## -Attention : It is not completely free to use!
-## -------------------------------------------------------------------------------------------------------
+
 ## -Current Website View ( Being Process : %45 ) : 
 
 ### Register :
