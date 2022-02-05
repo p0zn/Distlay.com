@@ -54,7 +54,6 @@
 - Users can ask questions about their projects where they are stuck.
 - Users can create and edit profiles for themselves.
 - Users can edit and delete articles and questions on their dashboards.
-- Users can edit and delete articles and questions on their dashboards.
 - users can reset password.
 - Users can easily access the desired area using the tag system.
 
