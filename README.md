@@ -11,7 +11,6 @@
 
 ### Login : 
 
-![](https://www.linkpicture.com/q/login_16.png)
 
 ### Password Reset Steps : 
 ![](https://www.linkpicture.com/q/reset-1.png)
