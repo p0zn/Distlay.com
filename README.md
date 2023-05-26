@@ -6,25 +6,11 @@
 
 ## -Current Website View ( Being Process : %60 ) : 
 
-### Register :
-![](https://www.linkpicture.com/q/register_1.png)
-
-### Login : 
-
-
-### Password Reset Steps : 
-![](https://www.linkpicture.com/q/reset-1.png)
-![](https://www.linkpicture.com/q/resed-password.png)
-![](https://www.linkpicture.com/q/password-reset-mail.png)
-
 ### Articles Page : 
 ![](https://www.linkpicture.com/q/article_1.png)
 
 ### Articles Detail Page : 
 ![](https://www.linkpicture.com/q/article-detail.png)
-
-### Questions Page : 
-![](https://www.linkpicture.com/q/question_1.png)
 
 ### Question Detail Page : 
 ![](https://www.linkpicture.com/q/quesdetail.png)
@@ -41,10 +27,6 @@
 
 ### User Profile Page :
 ![](https://www.linkpicture.com/q/progile.png)
-
-### User Dashboard Page :
-![](https://www.linkpicture.com/q/dashboard_5.png)
-
 
 ## Features : 
 
